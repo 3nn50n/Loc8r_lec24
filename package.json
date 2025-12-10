@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "build": "cd app_public && yarn install && yarn build",
     "start": "node ./bin/www"
   },
   "dependencies": {
@@ -21,9 +22,5 @@
     "passport-local": "^1.0.0",
     "pug": "2.0.0-beta11",
     "request": "^2.88.2"
-  },
-  "scripts": {
-  "build": "cd app_public && yarn install && yarn build",
-  "start": "node ./bin/www"
-}
+  }
 }

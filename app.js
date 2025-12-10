@@ -38,19 +38,18 @@ app.set('view engine', 'pug');
 
 
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.static(path.join(__dirname, 'app_public')));
+//app.use(express.static(path.join(__dirname, 'app_public')));
 
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(passport.initialize());
 //app.use('/', indexRouter);
 app.use('/api', apiRouter);
 app.use('/users', usersRouter);
-app.use(express.static(path.join(__dirname, 'app_public', 'build')));
+//app.use(express.static(path.join(__dirname, 'app_public', 'build')));
 
 
 app.use((err,req,res,next) => {

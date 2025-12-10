@@ -1,3 +1,4 @@
+var cors = require('cors');
 require('dotenv').config();
 var createError = require('http-errors');
 var express = require('express');
@@ -5,7 +6,6 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const passport = require('passport');
-const cors = require('cors');
 require('./app_api/models/db'); // DB connection
 require('./app_api/config/passport');
 require('./app_api/models/users');
@@ -51,13 +51,6 @@ app.use(passport.initialize());
 app.use('/api', apiRouter);
 app.use('/users', usersRouter);
 
-
-
-
-
-app.get('*', (req, res, next) => {
-  res.sendFile(path.join(__dirname, 'app_public', 'build', 'index.html'));
-});
 
 app.use((err,req,res,next) => {
   if(err.name === 'UnauthorizedError'){

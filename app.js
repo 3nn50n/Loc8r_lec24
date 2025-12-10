@@ -46,7 +46,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 app.use(passport.initialize());
-//app.use('/', indexRouter);
+const indexRouter = require('./app_server/routes/index');
+app.use('/', indexRouter);
 app.use('/api', apiRouter);
 app.use('/users', usersRouter);
 //app.use(express.static(path.join(__dirname, 'app_public', 'build')));

@@ -50,6 +50,9 @@ app.use(passport.initialize());
 //app.use('/', indexRouter);
 app.use('/api', apiRouter);
 app.use('/users', usersRouter);
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'app_public', 'build', 'index.html'));
+});
 
 
 app.use((err,req,res,next) => {
